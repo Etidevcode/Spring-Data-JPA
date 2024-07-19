@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/01. Introduction to Spring Data JPA/sdjpa-intro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03. Introduction to Testing With Spring Boot/sdjpa-intro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04. Hibernate with MySQL/sdjpa-intro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05. Using Liquibase/sdjpa-intro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06. Using Flyway/sdjpa-intro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/07. Hibernate Primary Keys/sdjpa-intro/src/main/java" charset="UTF-8" />
+  </component>
+</project>

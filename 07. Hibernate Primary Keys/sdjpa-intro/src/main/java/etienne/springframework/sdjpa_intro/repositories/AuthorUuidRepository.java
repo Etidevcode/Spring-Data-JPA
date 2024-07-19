@@ -1,0 +1,13 @@
+/*
+ * Etienne KOA :  18/07/2024
+ */
+
+package etienne.springframework.sdjpa_intro.repositories;
+
+import etienne.springframework.sdjpa_intro.domain.AuthorUuid;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface AuthorUuidRepository extends JpaRepository<AuthorUuid, UUID> {
+}

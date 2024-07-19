@@ -1,0 +1,13 @@
+<component name="CopyrightManager">
+  <settings default="Etienne KOA">
+    <module2copyright>
+      <element module="All" copyright="Etienne KOA" />
+    </module2copyright>
+    <LanguageOptions name="JAVA">
+      <option name="fileTypeOverride" value="3" />
+    </LanguageOptions>
+    <LanguageOptions name="__TEMPLATE__">
+      <option name="relativeBefore" value="false" />
+    </LanguageOptions>
+  </settings>
+</component>
