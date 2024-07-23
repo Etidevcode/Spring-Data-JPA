@@ -304,7 +304,7 @@ considéré comme dépassé.
 ### 3) Pile de LAMPES
 + **LAMP = Linux, Apache, MySQL, PHP**
 + Très populaire.
-+ **springframework.guru** l'utilise.
++ **springframework.etienne** l'utilise.
 + La plupart des sites Web fonctionneront sur un seul serveur.
 + L'inconvénient est que la base de données et Apache sont en concurrence pour les ressources limitées du serveur.
 
