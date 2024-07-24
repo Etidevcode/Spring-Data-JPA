@@ -11,5 +11,7 @@
     <file url="file://$PROJECT_DIR$/09. Spring JDBC Template/sdjpa-jdbc-template/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/10. Hibernate DAO/sdjpa-hibernate-dao/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/11. Hibernate Queries/sdjpa-hibernate-dao-queries/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/12. Spring Data JPA Queries/sdjpa-spring-data-jpa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13. Paging and Sorting/sdjpa-jdbc-template-paging-sorting/src/main/java" charset="UTF-8" />
   </component>
 </project>

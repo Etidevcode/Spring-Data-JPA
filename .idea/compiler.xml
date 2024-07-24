@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sdjpa-jdbc-template" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -14,6 +13,9 @@
       <module name="sdjpa-hibernate-dao-queries" target="17" />
       <module name="sdjpa-intro" target="17" />
       <module name="sdjpa-jdbc" target="17" />
+      <module name="sdjpa-jdbc-template" target="17" />
+      <module name="sdjpa-jdbc-template-paging-sorting" target="17" />
+      <module name="sdjpa-spring-data-jpa" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -23,6 +25,8 @@
       <module name="sdjpa-intro" options="-parameters" />
       <module name="sdjpa-jdbc" options="-parameters" />
       <module name="sdjpa-jdbc-template" options="-parameters" />
+      <module name="sdjpa-jdbc-template-paging-sorting" options="-parameters" />
+      <module name="sdjpa-spring-data-jpa" options="-parameters" />
     </option>
   </component>
 </project>
