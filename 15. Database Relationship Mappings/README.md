@@ -52,6 +52,19 @@
 + Il n'est pas appliqué ni généré s'il est manquant
 + Lorsque vous utilisez des outils de migration de schéma comme Liquibase ou Flyway, cela n'est pas nécessaire
 
+## Types de cascade spécifiques à JPA
++ **ALL** - propage toutes les opérations
++ **PERSIST** - Enregistre également les objets enfants (instances transitoires)
++ **MERGE** - Merge copie l'état d'un objet donné dans l'objet persistant. MERGE inclut les entités enfants
++ **REMOVE** - Enchaîne les opérations de suppression sur les objets enfants
++ **REFRESH** - Enchaîne les opérations d'actualisation sur les objets enfants
++ **DETACH** - Détache les objets enfants du contexte de persistance
++ **DELETE** - Identique à JPA REMOVE
++ **SAVE_UPDATE** - Enchaîne les opérations d'enregistrement et de mise à jour Hibernate sur les objets enfants
++ **REPLICATE** - Réplique les objets enfants vers la deuxième source de données
++ **LOCK** - Rattache l'entité et les enfants au contexte de persistance - sans actualisation
+
+
 ## Annexe 
 
 [Plugins : JPA Buddy](https://jpa-buddy.com/documentation/)

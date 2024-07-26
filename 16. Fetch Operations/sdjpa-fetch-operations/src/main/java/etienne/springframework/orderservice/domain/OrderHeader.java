@@ -1,13 +1,13 @@
 package etienne.springframework.orderservice.domain;
 
-import jakarta.persistence.*;
-
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
- * Created by Etienne on 25/07/24.
+ * Created by Etienne on 26/07/24.
  */
 @Entity
 @AttributeOverrides({
@@ -46,7 +46,7 @@ import java.util.Set;
 })
 public class OrderHeader extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
     @Embedded
@@ -58,19 +58,28 @@ public class OrderHeader extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToMany(
-            mappedBy = "orderHeader",
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-    )
+    @OneToMany(mappedBy = "orderHeader", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<OrderLine> orderLines;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "orderHeader") // orphanRemoval = true
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}) // , mappedBy = "orderHeader"
+    @Fetch(FetchMode.SELECT)
     private OrderApproval orderApproval;
+
+    public OrderApproval getOrderApproval() {
+        return orderApproval;
+    }
+
+    public void setOrderApproval(OrderApproval orderApproval) {
+        this.orderApproval = orderApproval;
+        orderApproval.setOrderHeader(this);
+    }
 
     public void addOrderLine(OrderLine orderLine) {
         if (orderLines == null) {
             orderLines = new HashSet<>();
         }
+
         orderLines.add(orderLine);
         orderLine.setOrderHeader(this);
     }
@@ -115,32 +124,32 @@ public class OrderHeader extends BaseEntity {
         this.orderLines = orderLines;
     }
 
-    public OrderApproval getOrderApproval() {
-        return orderApproval;
-    }
-
-    public void setOrderApproval(OrderApproval orderApproval) {
-        this.orderApproval = orderApproval;
-        orderApproval.setOrderHeader(this);
-    }
-
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrderHeader that)) return false;
+        if (!(o instanceof OrderHeader)) return false;
         if (!super.equals(o)) return false;
 
-		return Objects.equals(customer, that.customer) && Objects.equals(shippingAddress, that.shippingAddress) && Objects.equals(billToAddress, that.billToAddress) && orderStatus == that.orderStatus && Objects.equals(orderLines, that.orderLines);
+        OrderHeader that = (OrderHeader) o;
+
+        if (getCustomer() != null ? !getCustomer().equals(that.getCustomer()) : that.getCustomer() != null)
+            return false;
+        if (getShippingAddress() != null ? !getShippingAddress().equals(that.getShippingAddress()) : that.getShippingAddress() != null)
+            return false;
+        if (getBillToAddress() != null ? !getBillToAddress().equals(that.getBillToAddress()) : that.getBillToAddress() != null)
+            return false;
+        if (getOrderStatus() != that.getOrderStatus()) return false;
+        return getOrderLines() != null ? getOrderLines().equals(that.getOrderLines()) : that.getOrderLines() == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + Objects.hashCode(customer);
-        result = 31 * result + Objects.hashCode(shippingAddress);
-        result = 31 * result + Objects.hashCode(billToAddress);
-        result = 31 * result + Objects.hashCode(orderStatus);
-        result = 31 * result + Objects.hashCode(orderLines);
+        result = 31 * result + (getCustomer() != null ? getCustomer().hashCode() : 0);
+        result = 31 * result + (getShippingAddress() != null ? getShippingAddress().hashCode() : 0);
+        result = 31 * result + (getBillToAddress() != null ? getBillToAddress().hashCode() : 0);
+        result = 31 * result + (getOrderStatus() != null ? getOrderStatus().hashCode() : 0);
+        result = 31 * result + (getOrderLines() != null ? getOrderLines().hashCode() : 0);
         return result;
     }
 }

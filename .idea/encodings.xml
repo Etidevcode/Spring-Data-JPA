@@ -15,5 +15,6 @@
     <file url="file://$PROJECT_DIR$/13. Paging and Sorting/sdjpa-jdbc-template-paging-sorting/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/14. Hibernate Java Mappings/sdjpa-hibernate-java-mappings/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/15. Database Relationship Mappings/sdjpa-database-relationship-mappings/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/16. Fetch Operations/sdjpa-fetch-operations/src/main/java" charset="UTF-8" />
   </component>
 </project>
