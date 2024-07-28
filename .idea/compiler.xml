@@ -10,6 +10,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="sdjpa-database-relationship-mappings" target="17" />
+      <module name="sdjpa-database-transactions-locking" target="17" />
       <module name="sdjpa-fetch-operations" target="17" />
       <module name="sdjpa-hibernate-dao" target="17" />
       <module name="sdjpa-hibernate-dao-queries" target="17" />
@@ -24,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="sdjpa-database-relationship-mappings" options="-parameters" />
+      <module name="sdjpa-database-transactions-locking" options="-parameters" />
       <module name="sdjpa-fetch-operations" options="-parameters" />
       <module name="sdjpa-hibernate-dao" options="-parameters" />
       <module name="sdjpa-hibernate-dao-queries" options="-parameters" />

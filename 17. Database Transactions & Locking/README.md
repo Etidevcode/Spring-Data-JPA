@@ -102,3 +102,100 @@
 + **OPTIMISTIC_FORCE_INCREMENT** : identique à **OPTIMISTIC, mais incrémente la valeur de la version
 + **READ** : **JPA 1.x**, identique à **OPTIMISTIC**
 + **WRITE** : **JPA 1.x**, identique à **OPTIMISTIC_FORCE_INCREMENT**
+
+
+## Transactions Spring Data JPA
++ Spring Data JPA prend en charge par défaut les transactions implicites. Cela signifie que les méthodes du référentiel
+créeront une transaction par défaut, s'il n'y a pas de transaction active.
++ Spring Data JPA a deux types de transactions implicites :
+  + Les opérations de lecture sont effectuées dans un contexte de lecture seule
+  + Les mises à jour et les suppressions sont effectuées avec le contexte transactionnel par défaut
++ Utilisez la lecture seule avec prudence, les vérifications incorrectes sont ignorées, ce qui rend les performances plus élevées
+  + Si l'objet du contexte de lecture seule est mis à jour et enregistré, vous pouvez rencontrer des problèmes
+
+## Transactions de test Spring Boot
++ Spring Boot crée par défaut une transaction pour vos tests et la restaure
++ Les transactions implicites Spring Data JPA ne sont PAS utilisées dans le contexte de test
+  + Les transactions implicites ne sont utilisées qu'en dehors d'un contexte transactionnel
++ Si vous avez une méthode en cours de test avec un ou plusieurs appels de méthode de référentiel, vous pouvez voir des résultats différents lorsqu'elle est exécutée en dehors du contexte de test
+  + En général, une erreur d'entité détachée due à l'accès aux propriétés de chargement différé en dehors du contexte Hibernate.
+
+## Déclaré avec l'annotation @Transactional
++ Spring Framework fournit une annotation `@Transactional` dans le package `“org.springframework.transaction.annotation”`
++ JEE fournit également une annotation `@Transactional` dans le package `“javax.transaction”`
++ Spring prendra en charge les deux options
+  + Spring 4.x peut avoir des problèmes de compatibilité
++ Il est recommandé d'utiliser la version `@Transactional` de Spring Framework
+  + Plus polyvalent et spécifique à Spring que `@Transactional` de JEE
+
+## Annotation @Transactional de Spring
++ Attributs d'annotation transactionnelle :
+  + **value / transactionManager** - le nom du gestionnaire de transactions à utiliser
+  + **label** - Chaîne pour décrire une transaction
+  + **Propagation** - Le type de propagation de transaction
+  + **Isolation** - Niveau d'isolement de transaction
+  + **timeout** - Délai d'expiration de la transaction
+  + **readOnly** - est en lecture seule ?
+
+## Annotation @Transactional de Spring - Suite
++ Attributs d'annotation transactionnelle :
+  + **rollbackFor / rollbackforClassName** - Exceptions pour lesquelles il faut effectuer une restauration
+  + **NoRollbackFor / noRollbackforClassName** - Exceptions pour lesquelles il ne faut PAS effectuer de restauration.
+
+## @Transactional - Gestionnaire de transactions
++ Spring Boot configurera automatiquement une instance d'un gestionnaire de transactions en fonction de vos dépendances
++ Spring Framework fournit une interface appelée PlatformTransactionManager
++ Implémentations disponibles pour JDBC, JTA (JEE), Hibernate, etc.
++ Spring Boot configure automatiquement l'implémentation appropriée
++ Instance configurée automatiquement nommée **transactionManager** 
+
+## @Transactional - Propagation des transactions
++ **REQUIRED** - (Par défaut) - utiliser une transaction existante ou créer une nouvelle transaction
++ **SUPPORTS** - Utiliser une transaction existante ou exécuter de manière non transactionnelle si aucune n'existe
++ **MANDATORY** - Prendre en charge la transaction actuelle, générer une exception si aucune n'existe
++ **REQUIRES_NEW** - Créer une nouvelle transaction, suspendre la transaction actuelle
++ **NOT_SUPPORTED** - Exécuter de manière non transactionnelle, suspendre la transaction actuelle si elle existe
++ **NEVER** - Exécuter de manière non transactionnelle, générer une exception si la transaction existe
++ **NESTED** - Utiliser transaction imbriquée si la transaction existe, créer si non.
+
+## @Transactional - Niveau d'isolement des transactions
++ **DEFAULT** - (Par défaut) Utiliser le niveau de connexion JDBC
++ **READ_UNCOMMITTED** - Autorise les lectures sales et non répétables
++ **READ_COMMITTED** - Empêche les lectures sales, empêche la lecture de lignes avec des modifications non validées
++ **REPEATABLE_READ** - Empêche les lectures sales et non répétables
++ **SERIALIZABLE** - empêche toutes les lectures sales, similaire à **REPEATABLE_READ**, et effectue une deuxième lecture pour vérifier
+
+## @Transactional - Délai d'expiration des transactions
++ La valeur par défaut est -1, ce qui permet d'utiliser l'implémentation sous-jacente
++ Spring Boot ne remplace pas cela
++ Sauf si elle est définie spécifiquement au niveau de la connexion, la valeur par défaut est le paramètre de la plateforme 
+  + Pour MySQL, il s'agit de 8 heures
+
+## @Transactional - Lecture seule
++ Par défaut, la propriété readOnly est définie sur false
+  + Spring Data JPA pour les transactions impliquées des méthodes de lecture définira ceci sur true
++ L'utilisation de la propriété readOnly sur true permet à Hibernate d'effectuer certaines optimisations d'efficacité
+  + Ce n'est PAS garanti
++ NE PAS UTILISER si vous prévoyez de mettre à jour et d'enregistrer les entités récupérées
+
+## @Transactional - RollbackFor / NoRollbackFor
++ Par défaut, les exceptions d'exécution non gérées seront annulées
++ En général, la valeur par défaut convient à la plupart des situations
++ Peut être utile lorsque vous souhaitez annuler une transaction enfant, mais pas la transaction entière
+
+## Utilisation de @Transactional au niveau du référentiel
++ Les méthodes du référentiel Spring Data JPA peuvent être remplacées et personnalisées au niveau du référentiel
+
+![Transactional](images/image1.jpeg)
+
+## Transactions implicites
+
+![Transactional](images/image2.jpeg)
+
+## N'utilisez pas de méthodes privées
+
+![Transactional](images/image3.jpeg)
+
+## Transactions déclarées et portée
+
+![Transactional](images/image4.jpeg)
