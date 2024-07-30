@@ -107,3 +107,21 @@
 + Utilisez **@NonEmpty ou **@NonBlank** pour les propriétés de chaîne requises - un espace est une chaîne valide
 + En général, NE validez PAS les propriétés gérées par Hibernate
   + Par exemple, exiger une propriété d'ID gérée par la base de données ou une propriété de version peut entraîner des erreurs
+
+
+
+## Quand et où valider ?
++ Quand et où valider les données ?
++ L'accent a bien sûr été mis sur la validation préalable à la persistance
++ Envisagez une **application à plusieurs niveaux**
+  + **Front-end ReactJS**, **API Spring Boot RESTFul**, **JPA Spring Data**
+  + **Validation des entrées utilisateurs**, **Validation API**, **Validation de la persistance**
+
+## Quand et où valider ?
++ Principe général : valider tôt et échouer tôt. Ensuite, faire confiance, mais vérifier
++ Validation des entrées utilisateurs
+  + Valider toutes les entrées utilisateur, fournir des commentaires riches à l'utilisateur final
++ Validation API : valider les données, fournir des commentaires riches - HTTP 400 : mauvaise requête
++ Validation de la persistance : dernière ligne de défense, valider les données, fournir des données riches en cas d'exception
+  + Doit être HTTP 400, mais peut être HTTP 500
++ Les échecs précoces sont plus conviviaux pour le consommateur

@@ -9,32 +9,40 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="sdjpa-credit-card" target="17" />
       <module name="sdjpa-database-relationship-mappings" target="17" />
       <module name="sdjpa-database-transactions-locking" target="17" />
       <module name="sdjpa-fetch-operations" target="17" />
       <module name="sdjpa-hibernate-dao" target="17" />
       <module name="sdjpa-hibernate-dao-queries" target="17" />
       <module name="sdjpa-hibernate-java-mappings" target="17" />
+      <module name="sdjpa-inheritance" target="17" />
       <module name="sdjpa-intro" target="17" />
       <module name="sdjpa-jdbc" target="17" />
       <module name="sdjpa-jdbc-template" target="17" />
       <module name="sdjpa-jdbc-template-paging-sorting" target="17" />
+      <module name="sdjpa-legacy-database-mapping" target="17" />
       <module name="sdjpa-spring-data-jpa" target="17" />
+      <module name="sdjpa-validation" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sdjpa-credit-card" options="-parameters" />
       <module name="sdjpa-database-relationship-mappings" options="-parameters" />
       <module name="sdjpa-database-transactions-locking" options="-parameters" />
       <module name="sdjpa-fetch-operations" options="-parameters" />
       <module name="sdjpa-hibernate-dao" options="-parameters" />
       <module name="sdjpa-hibernate-dao-queries" options="-parameters" />
       <module name="sdjpa-hibernate-java-mappings" options="-parameters" />
+      <module name="sdjpa-inheritance" options="-parameters" />
       <module name="sdjpa-intro" options="-parameters" />
       <module name="sdjpa-jdbc" options="-parameters" />
       <module name="sdjpa-jdbc-template" options="-parameters" />
       <module name="sdjpa-jdbc-template-paging-sorting" options="-parameters" />
+      <module name="sdjpa-legacy-database-mapping" options="-parameters" />
       <module name="sdjpa-spring-data-jpa" options="-parameters" />
+      <module name="sdjpa-validation" options="-parameters" />
     </option>
   </component>
 </project>

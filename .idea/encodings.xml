@@ -17,5 +17,9 @@
     <file url="file://$PROJECT_DIR$/15. Database Relationship Mappings/sdjpa-database-relationship-mappings/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/16. Fetch Operations/sdjpa-fetch-operations/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/17. Database Transactions &amp; Locking/sdjpa-database-transactions-locking/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/18. Validation/sdjpa-validation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/19. Inheritance/sdjpa-inheritance/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/20. Legacy Database Mapping/sdjpa-legacy-database-mapping/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/21. Hibernate Interceptors/sdjpa-credit-card/src/main/java" charset="UTF-8" />
   </component>
 </project>
