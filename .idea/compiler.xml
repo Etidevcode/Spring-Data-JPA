@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -10,6 +11,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="sdjpa-credit-card" target="17" />
+      <module name="sdjpa-credit-card-hibernate-listeners" target="17" />
+      <module name="sdjpa-credit-card-jpa-callbacks" target="17" />
+      <module name="sdjpa-data-rest" target="17" />
       <module name="sdjpa-database-relationship-mappings" target="17" />
       <module name="sdjpa-database-transactions-locking" target="17" />
       <module name="sdjpa-fetch-operations" target="17" />
@@ -22,13 +26,19 @@
       <module name="sdjpa-jdbc-template" target="17" />
       <module name="sdjpa-jdbc-template-paging-sorting" target="17" />
       <module name="sdjpa-legacy-database-mapping" target="17" />
+      <module name="sdjpa-multi-db" target="17" />
+      <module name="sdjpa-multi-db-project" target="17" />
       <module name="sdjpa-spring-data-jpa" target="17" />
+      <module name="sdjpa-spring-data-rest" target="17" />
       <module name="sdjpa-validation" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="sdjpa-credit-card" options="-parameters" />
+      <module name="sdjpa-credit-card-hibernate-listeners" options="-parameters" />
+      <module name="sdjpa-credit-card-jpa-callbacks" options="-parameters" />
+      <module name="sdjpa-data-rest" options="-parameters" />
       <module name="sdjpa-database-relationship-mappings" options="-parameters" />
       <module name="sdjpa-database-transactions-locking" options="-parameters" />
       <module name="sdjpa-fetch-operations" options="-parameters" />
@@ -41,7 +51,10 @@
       <module name="sdjpa-jdbc-template" options="-parameters" />
       <module name="sdjpa-jdbc-template-paging-sorting" options="-parameters" />
       <module name="sdjpa-legacy-database-mapping" options="-parameters" />
+      <module name="sdjpa-multi-db" options="-parameters" />
+      <module name="sdjpa-multi-db-project" options="-parameters" />
       <module name="sdjpa-spring-data-jpa" options="-parameters" />
+      <module name="sdjpa-spring-data-rest" options="-parameters" />
       <module name="sdjpa-validation" options="-parameters" />
     </option>
   </component>

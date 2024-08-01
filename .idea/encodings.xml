@@ -21,5 +21,9 @@
     <file url="file://$PROJECT_DIR$/19. Inheritance/sdjpa-inheritance/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/20. Legacy Database Mapping/sdjpa-legacy-database-mapping/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/21. Hibernate Interceptors/sdjpa-credit-card/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/22. Hibernate Listeners/sdjpa-credit-card-hibernate-listeners/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/23. JPA Callbacks/sdjpa-credit-card-jpa-callbacks/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/24. Multiple Data Sources/sdjpa-multi-db-project/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/25. Intro to Spring Data REST/sdjpa-spring-data-rest/src/main/java" charset="UTF-8" />
   </component>
 </project>
